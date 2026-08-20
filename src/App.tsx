@@ -1,7 +1,12 @@
+import AppRoutes from './Routes'
+import { TooltipProvider } from './components/ui/tooltip'
+
 function App() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <h1 className="text-2xl font-semibold">LearnMarket Admin Panel</h1>
+    <div className="h-screen min-h-screen w-full gap-3 bg-white">
+      <TooltipProvider>
+        <AppRoutes />
+      </TooltipProvider>
     </div>
   )
 }
