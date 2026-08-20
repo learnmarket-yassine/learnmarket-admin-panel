@@ -1,3 +1,4 @@
+import useLogout from '@/features/auth/hooks/useLogout'
 import { cn } from '@/lib/utils'
 import { useStore } from '@/store/store'
 import { NavLink, useNavigate } from 'react-router-dom'
@@ -11,10 +12,9 @@ type Props = {
 }
 const SideBarLink = (props: Props) => {
   const setClickedLearnRequestName = useStore((state) => state.auth.setClickedLearnRequestName)
-  const navigate = useNavigate()
+  const logout = useLogout()
   const handleLogout = () => {
-    localStorage.removeItem('RefreshToken')
-    navigate('/login')
+    logout.mutate()
   }
 
   return (

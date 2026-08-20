@@ -17,11 +17,13 @@
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",
+    "@hookform/resolvers": "^5.9.1",
     "@tanstack/react-query": "^5.101.4",
     "axios": "^1.18.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
+    "glamor": "^2.20.40",
     "lucide-react": "^1.31.0",
     "radix-ui": "^1.6.7",
     "react": "^19.2.6",
