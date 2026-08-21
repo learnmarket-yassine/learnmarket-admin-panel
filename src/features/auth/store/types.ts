@@ -22,8 +22,6 @@ type AuthState = {
   setAuthenticationResult: (auth: Auth | null) => void
   user: AuthUser | null
   setUser: (user: AuthUser | null) => void
-  clickedLearnRequestName: string
-  setClickedLearnRequestName: (learnRequest: string) => void
 }
 export type AuthSlice = {
   auth: AuthState

@@ -6,7 +6,7 @@ import { useStore } from '@/store/store'
 import LearnRequestsIcon from '@/assets/LearnRequestsIcon'
 
 const NavLinks = () => {
-  const clickedLearnRequestName = useStore((state) => state.auth.clickedLearnRequestName)
+  const clickedLearnRequestName = useStore((state) => state.learnRequest.clickedLearnRequestName)
 
   const location = useLocation()
   const navData = [
