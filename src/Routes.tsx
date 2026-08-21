@@ -1,21 +1,19 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './Layout'
 import PersistLogin from './PersistLogin'
-import LoginLayout from './features/auth/components/layout/LoginLayout'
 import LoginPage from './pages/LoginPage'
 import RequireAuth from './RequireAuth'
+import ResetPasswordPage from './pages/ResetPasswordPage'
+import ForgotPasswordPage from './pages/ForgotPasswordPage'
+import VerifCodePage from './pages/verifCodePage'
 const AppRoutes = () => {
   return (
     <Routes>
       <Route element={<PersistLogin />}>
-        <Route
-          path="login"
-          element={
-            <LoginLayout>
-              <LoginPage />
-            </LoginLayout>
-          }
-        ></Route>
+        <Route path="login" element={<LoginPage />} />
+        <Route path="forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="verif-code" element={<VerifCodePage />} />
+        <Route path="reset-password" element={<ResetPasswordPage />} />
       </Route>
       <Route element={<PersistLogin />}>
         <Route path="/" element={<Layout />}>

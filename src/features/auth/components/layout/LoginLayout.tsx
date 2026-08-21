@@ -31,7 +31,9 @@ const LoginLayout = (props: Props) => {
                   ? 'Password Reset'
                   : location.pathname === '/forgot-password'
                     ? 'Forgot Password?'
-                    : 'Welcome' + '!'
+                    : location.pathname === '/verif-code'
+                      ? 'Verification Code'
+                      : 'Welcome' + '!'
               }
             />
           </button>

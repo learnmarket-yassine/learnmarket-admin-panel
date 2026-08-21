@@ -15,7 +15,7 @@ const NavLinks = () => {
       icon: <LearnRequestsIcon active={location.pathname.includes('/learn-requests')} />,
       label: clickedLearnRequestName || 'Learn Requests',
       disabled: false,
-      isActive: location.pathname.includes('/contact'),
+      isActive: location.pathname.includes('/learn-requests'),
     },
   ]
 

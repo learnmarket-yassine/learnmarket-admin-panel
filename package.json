@@ -24,6 +24,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
     "glamor": "^2.20.40",
+    "input-otp": "^1.5.0",
     "lucide-react": "^1.31.0",
     "radix-ui": "^1.6.7",
     "react": "^19.2.6",

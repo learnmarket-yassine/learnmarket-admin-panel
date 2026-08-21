@@ -1,7 +1,7 @@
 import useLogout from '@/features/auth/hooks/useLogout'
 import { cn } from '@/lib/utils'
 import { useStore } from '@/store/store'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 type Props = {
   to: string
@@ -22,7 +22,7 @@ const SideBarLink = (props: Props) => {
       {props.disabled ? (
         <div
           aria-disabled={true}
-          className="text-nav flex min-h-fit w-full cursor-not-allowed items-center gap-3 rounded-lg p-3 opacity-50"
+          className="flex min-h-fit w-full cursor-not-allowed items-center gap-3 rounded-lg p-3 text-[#808080] opacity-50"
         >
           {props.icon}
           <span
@@ -48,8 +48,8 @@ const SideBarLink = (props: Props) => {
             className={(navData) => {
               const active = props?.isActive ?? navData.isActive
               return active
-                ? 'flex min-h-fit w-full items-center gap-3 rounded-lg bg-primary p-3 text-white'
-                : 'text-nav flex min-h-fit w-full items-center gap-3 rounded-lg p-3'
+                ? 'flex min-h-fit w-full items-center gap-3 rounded-lg bg-[#2563EB] p-3 text-white'
+                : 'flex min-h-fit w-full items-center gap-3 rounded-lg p-3 text-[#808080]'
             }}
           >
             {props.icon}
