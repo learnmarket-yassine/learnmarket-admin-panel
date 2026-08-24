@@ -4,7 +4,7 @@ import { useStore } from '@/store/store'
 import useGetInitialLearnRequest from '@/features/learn-request/hooks/useGetInitialLearnRequests'
 import Loader from '@/components/ui/Loader/Loader'
 import LearnRequestList from '@/features/learn-request/components/ui/LearnRequestList'
-import EmptyPage from '@/features/learn-request/components/ui/EmptyPage'
+import { EmptyPage } from '@/features/learn-request/components/ui/EmptyPage'
 
 const LearnRequestsPage = () => {
   const getLearnRequestQuery = useGetInitialLearnRequest()
@@ -32,7 +32,7 @@ const LearnRequestsPage = () => {
       {getLearnRequestQuery.data && getLearnRequestQuery.data.totalCount > 0 ? (
         <LearnRequestList />
       ) : (
-        <EmptyPage />
+        <EmptyPage description='for this moment we don"t find any learn request' />
       )}
     </div>
   )

@@ -4,9 +4,9 @@ import { useInView } from 'react-intersection-observer'
 import useGetLearnRequests from '../../hooks/useGetLearnRequests'
 import { LearnRequest, LearnRequestStatus } from '../../store/types'
 import Loader from '@/components/ui/Loader/Loader'
-import EmptyPage from './EmptyPage'
 import NoResults from '@/components/ui/NoResults'
 import LearnRequestCard from './LearnRequestCard'
+import { EmptyPage } from './EmptyPage'
 
 const LearnRequests = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -48,7 +48,7 @@ const LearnRequests = () => {
   }
 
   if (statusFetch === 'error') {
-    return <EmptyPage />
+    return <EmptyPage description="there is an issue while fetching learn requests list" />
   }
   return ListLearnRequests.length ? (
     <div ref={containerRef} className="h-full max-h-[400px] overflow-y-auto px-10">
