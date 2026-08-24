@@ -3,24 +3,24 @@ import Step from './Step'
 const Stepper = () => {
   const steps = [
     {
-      number: 2,
-      name: 'Actifs',
-      status: 'actif',
+      number: 1,
+      name: 'In Progress',
+      status: 'In_Progress',
     },
     {
-      number: 1,
-      name: 'Tous',
-      status: 'tous',
+      number: 2,
+      name: 'Completed',
+      status: 'completed',
     },
     {
       number: 3,
-      name: 'Inactifs',
-      status: 'inactif',
+      name: 'All',
+      status: 'all',
     },
     {
       number: 4,
-      name: 'Brouillons/Incomplets',
-      status: 'brouillons',
+      name: 'Draft',
+      status: 'drafts',
     },
   ]
 

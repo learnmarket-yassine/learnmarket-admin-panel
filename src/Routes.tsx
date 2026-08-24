@@ -6,7 +6,7 @@ import RequireAuth from './RequireAuth'
 import ResetPasswordPage from './pages/ResetPasswordPage'
 import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import VerifCodePage from './pages/verifCodePage'
-import { LearnRequests } from './pages/LearnRequestsPage'
+import LearnRequestsPage from './pages/LearnRequestsPage'
 const AppRoutes = () => {
   return (
     <Routes>
@@ -20,7 +20,7 @@ const AppRoutes = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/learn-requests" replace />} />
           <Route element={<RequireAuth />}>
-            <Route path="/learn-requests" element={<LearnRequests />} />
+            <Route path="/learn-requests" element={<LearnRequestsPage />} />
           </Route>
         </Route>
       </Route>
