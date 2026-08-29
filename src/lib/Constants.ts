@@ -91,6 +91,7 @@ export const SESSION_STATUS_CONFIG: Record<SessionStatus, SessionStatusConfig> =
   },
   COMPLETED: { label: 'Completed', badgeBg: 'bg-slate-200', badgeText: 'text-slate-700' },
   CANCELLED: { label: 'Cancelled', badgeBg: 'bg-red-100', badgeText: 'text-red-700' },
+  DISPUTED: { label: 'Disputed', badgeBg: 'bg-pink-100', badgeText: 'text-pink-700' },
 }
 
 export const languageLevelLabels: Record<LanguageLevel, string> = {

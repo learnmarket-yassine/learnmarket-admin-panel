@@ -32,7 +32,7 @@ const LearnRequestProposalsList: React.FC<LearnRequestProposalsListProps> = ({
   isError,
   isLoading,
   onRetry,
-  emptyMessage,
+  // emptyMessage,
 }) => {
   const [selectedProposalId, setSelectedProposalId] = useState<string | null>(null)
   const [isSheetOpen, setIsSheetOpen] = useState(false)

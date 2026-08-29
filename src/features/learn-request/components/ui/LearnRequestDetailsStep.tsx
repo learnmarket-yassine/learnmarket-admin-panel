@@ -4,7 +4,6 @@ import useGetLearnRequest from '../../hooks/useGetLearnRequest'
 import Loader from '@/components/ui/Loader/Loader'
 import EmptyState from '@/components/ui/EmptyState'
 import LearnRequestDetailsContent from './LearnRequestDetailsContent'
-import LearnRequestSidebarStats from './LearnRequestSidebarStats'
 
 type Props = {
   id: string
