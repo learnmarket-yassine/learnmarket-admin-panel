@@ -9,6 +9,7 @@ import VerifCodePage from './pages/verifCodePage'
 import LearnRequestsPage from './pages/LearnRequestsPage'
 import LearnRequestDetailsPage from './pages/LearnRequestDetailsPage'
 import SessionDetailPage from './pages/SessionDetailsPage'
+import DisputedSessionsPage from './pages/DisputedSessionsPage'
 const AppRoutes = () => {
   return (
     <Routes>
@@ -28,6 +29,7 @@ const AppRoutes = () => {
               path="/proposals/:proposalId/sessions/:sessionId"
               element={<SessionDetailPage />}
             />
+            <Route path="/sessions" element={<DisputedSessionsPage />} />
           </Route>
         </Route>
       </Route>

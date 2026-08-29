@@ -8,6 +8,7 @@ import { SessionContext } from '@/features/learn-request/hooks/useGetSessionCont
 import { getBrowserTimezone } from '@/utils/timezones'
 import { formatDateLabel, formatSlotTime } from '@/utils/time'
 import { useCountdown } from '../../hooks/useCountdown'
+import RichTextContent from '@/components/ui/rich-text-content'
 
 interface SessionVideoCardProps {
   meeting: MeetingDetails
@@ -24,7 +25,7 @@ export interface SessionStatusConfig {
 const MeetingCard = ({ meeting, context }: SessionVideoCardProps) => {
   const timezone = getBrowserTimezone()
   const counterpartName = context.isTutor
-    ? `${context.learner?.firstname} ${context.learner?.lastname}`
+    ? `${context.learner.firstname} ${context.learner?.lastname}`
     : `${context.tutor?.firstname} ${context.tutor?.lastname}`
   const counterpartAvatar = context.isTutor ? context.learner?.avatar : context.tutor.avatar
   const counterpartInitials = counterpartName
@@ -87,7 +88,9 @@ const MeetingCard = ({ meeting, context }: SessionVideoCardProps) => {
               </div>
             </div>
           )}
-          <p className="text-base font-medium text-slate-600">{context.objective}</p>
+          {context.objective && (
+            <RichTextContent html={context.objective} className="text-base text-slate-600" />
+          )}
         </div>
         {hasEnded ? (
           <div className="flex items-start gap-2 rounded-2xl bg-red-50 p-4 text-sm text-red-700">

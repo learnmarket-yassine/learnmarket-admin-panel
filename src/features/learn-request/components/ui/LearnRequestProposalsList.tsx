@@ -6,6 +6,7 @@ import Loader from '@/components/ui/Loader/Loader'
 import LearnRequestPagination from './LearnRequestPagination'
 import LearnRequestProposalCard from './LearnRequestProposalCard'
 import { PROPOSALS_PAGE_SIZE } from '../../hooks/useGetLearnRequestProposals'
+import ProposalDetailsSheet from './ProposalDetailsSheet'
 
 type LearnRequestProposalsListProps = {
   proposals: Proposal[]
@@ -89,14 +90,14 @@ const LearnRequestProposalsList: React.FC<LearnRequestProposalsListProps> = ({
           onPageChange={setPage}
         />
       </div>
-      {/* <ProposalDetailsSheet
+      <ProposalDetailsSheet
         key={selectedProposal?.id ?? 'none'}
         proposal={selectedProposal}
         isOpen={isSheetOpen}
         setIsOpen={setIsSheetOpen}
         learnRequestId={learnRequestId}
         learnRequestStatus={learnRequestStatus}
-      /> */}
+      />
     </div>
   )
 }

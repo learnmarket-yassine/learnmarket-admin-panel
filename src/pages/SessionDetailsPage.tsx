@@ -6,6 +6,8 @@ import SessionRoomDetailsLayout from '@/features/session/components/layout/Sessi
 import useGetMeetingDetails from '@/features/session/hooks/useGetMeetingDetails'
 import CustomSessionDetailsTabToggle from '@/features/session/components/ui/CustomSessionDetailsTabToggle'
 import ClassroomFeed from '@/features/session/components/ui/ClassroomFeed'
+import TutorSummary from '@/features/session/components/ui/TutorSummary'
+import LearnerFeedback from '@/features/session/components/ui/LearnerFeedback'
 
 const SessionDetailPage = () => {
   const { proposalId, sessionId } = useParams<{
@@ -35,11 +37,18 @@ const SessionDetailPage = () => {
       enabled: true,
     },
     {
-      stepNumber: 3,
-      component: <></>,
+      stepNumber: 2,
+      component: <TutorSummary context={context} />,
       show: true,
-      name: 'Session Feedback',
-      enabled: context.status === 'PENDING_REVIEW',
+      name: 'Tutor Summary',
+      enabled: context.status === 'PENDING_REVIEW' || context.status === 'DISPUTED',
+    },
+    {
+      stepNumber: 3,
+      component: <LearnerFeedback context={context} />,
+      show: true,
+      name: 'Learner Feedback',
+      enabled: context.status === 'PENDING_REVIEW' || context.status === 'DISPUTED',
     },
   ]
 

@@ -3,12 +3,13 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Wallet } from 'lucide-react'
 import { formatBudget, getAssetUrl } from '@/lib/utils'
 import useLineClamp from '@/hooks/useLineClamp'
-import SkillsSlider from './SkillsCarousel'
+import RichTextContent from '@/components/ui/rich-text-content'
 import { LearnRequestStatus, Proposal } from '../../store/types'
+import useGetTutorRating from '../../hooks/useGetTutorRating'
 import VerifiedBadge from './VerifiedBadge'
 import TutorRatingBadge from './TutorRatingBadge'
-import useGetTutorRating from '../../hooks/useGetTutorRating'
 import { PAYOUT_METHOD_LABELS } from '@/lib/Constants'
+import SkillsSlider from './SkillsCarousel'
 
 type LearnRequestProposalCardProps = {
   proposal: Proposal
@@ -79,26 +80,27 @@ const LearnRequestProposalCard = ({ proposal, onSelect }: LearnRequestProposalCa
                 <p className="text-sm">{PAYOUT_METHOD_LABELS[proposal.payoutMethod]}</p>
               </div>
             </div>
-            <div>
-              <p
-                ref={descriptionRef}
-                className={`${clampClassName} text-base font-medium text-[#1E293B]`}
-              >
-                {proposal.message}
-              </p>
-              {isClampable && (
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    toggle()
-                  }}
-                  className="text-sm font-semibold text-[#565A60] underline"
-                >
-                  {isExpanded ? 'See less' : 'See more'}
-                </button>
-              )}
-            </div>
+            {proposal.message && (
+              <div>
+                <RichTextContent
+                  ref={descriptionRef}
+                  html={proposal.message}
+                  className={`${clampClassName} text-sm text-[#6B7280]`}
+                />
+                {isClampable && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      toggle()
+                    }}
+                    className="text-sm font-semibold text-[#565A60] underline"
+                  >
+                    {isExpanded ? 'See less' : 'See more'}
+                  </button>
+                )}
+              </div>
+            )}
             <SkillsSlider skills={tutor.tutorProfile?.skills} />
           </div>
         </div>

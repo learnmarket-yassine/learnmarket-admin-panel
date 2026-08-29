@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { LearnRequest } from '../../store/types'
 import { formatLabel, LEVEL_LABELS, TYPE_LABELS } from '@/lib/Constants'
 import { BookOpen, CalendarClock } from 'lucide-react'
+import RichTextContent from '@/components/ui/rich-text-content'
 
 export type LearnRequestPreview = Partial<LearnRequest>
 
@@ -91,12 +92,11 @@ const LearnRequestCard: React.FC<LearnRequestPreview> = ({
           {meta} · <span>budget</span>: ${formatBudget(budgetMin)} - ${formatBudget(budgetMax)}
         </p>
         <div>
-          <p
+          <RichTextContent
             ref={descriptionRef}
+            html={description ?? ''}
             className={`${clampClassName} text-base font-medium text-[#1E293B]`}
-          >
-            {description}
-          </p>
+          />
           {isClampable && (
             <button
               type="button"

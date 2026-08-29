@@ -20,7 +20,7 @@ const CustomSessionDetailsTabToggle = ({ selected, setSelected, steps }: CustomT
           className={`text-lg md:break-all ${
             selected === step.stepNumber
               ? 'border-b-2 font-semibold'
-              : 'cursor-pointer hover:font-medium disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-400'
+              : 'cursor-pointer disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-400'
           }`}
           disabled={!step.enabled}
           onClick={() => setSelected(step.stepNumber)}

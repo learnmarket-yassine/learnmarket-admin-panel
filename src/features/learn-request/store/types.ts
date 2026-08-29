@@ -1,4 +1,4 @@
-import { SessionStatus } from '../components/ui/SessionItem'
+import { SessionStatus } from '../components/ui/SessionBoardRow'
 
 export type LearnRequestType = 'ONE_TIME' | 'COURSE'
 export type ProficiencyLevel = 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED'
@@ -64,6 +64,7 @@ export interface ProposalSessionPlan {
 export interface Proposal {
   id: string
   learnRequestId: string
+  learnRequest: LearnRequest
   tutorId: string
   status: ProposalStatus
   sessionDurationMinutes: number
