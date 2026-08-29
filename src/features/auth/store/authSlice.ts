@@ -19,13 +19,5 @@ export const authSlice: StateCreator<AuthSlice> = (set) => ({
           user: user,
         },
       })),
-    clickedLearnRequestName: '',
-    setClickedLearnRequestName: (learnRequestName) =>
-      set((state) => ({
-        auth: {
-          ...state.auth,
-          clickedLearnRequestName: learnRequestName,
-        },
-      })),
   },
 })

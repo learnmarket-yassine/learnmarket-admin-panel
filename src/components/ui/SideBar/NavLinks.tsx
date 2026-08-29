@@ -4,9 +4,10 @@ import SettingsIcon from '@/assets/SettingsIcon'
 import LogoutIcon from '@/assets/LogoutIcon'
 import { useStore } from '@/store/store'
 import LearnRequestsIcon from '@/assets/LearnRequestsIcon'
+import VideoIcon from '@/assets/VideoIcon'
 
 const NavLinks = () => {
-  const clickedLearnRequestName = useStore((state) => state.auth.clickedLearnRequestName)
+  const clickedLearnRequestName = useStore((state) => state.learnRequest.clickedLearnRequestName)
 
   const location = useLocation()
   const navData = [
@@ -16,6 +17,13 @@ const NavLinks = () => {
       label: clickedLearnRequestName || 'Learn Requests',
       disabled: false,
       isActive: location.pathname.includes('/learn-requests'),
+    },
+    {
+      to: '/sessions',
+      icon: <VideoIcon active={location.pathname.includes('/sessions')} />,
+      label: 'Disputed Sessions',
+      disabled: false,
+      isActive: location.pathname.includes('/sessions'),
     },
   ]
 

@@ -11,7 +11,9 @@ type Props = {
   isActive?: boolean
 }
 const SideBarLink = (props: Props) => {
-  const setClickedLearnRequestName = useStore((state) => state.auth.setClickedLearnRequestName)
+  const setClickedLearnRequestName = useStore(
+    (state) => state.learnRequest.setClickedLearnRequestName
+  )
   const logout = useLogout()
   const handleLogout = () => {
     logout.mutate()

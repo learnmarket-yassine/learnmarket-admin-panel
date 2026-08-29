@@ -1,0 +1,163 @@
+import { Link } from 'react-router-dom'
+import { ArrowLeft, MapPin, Wallet } from 'lucide-react'
+import { Language, LearnRequestStatus, Proposal } from '../../store/types'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { formatBudget, getAssetUrl } from '@/lib/utils'
+import RichTextContent from '@/components/ui/rich-text-content'
+import VerifiedBadge from './VerifiedBadge'
+import ReactPlayer from 'react-player/youtube'
+import { languageLevelLabels, PAYOUT_METHOD_LABELS } from '@/lib/Constants'
+import SkillChip from './SkillChip'
+import ProposalSessionObjective from './ProposalSessionObjective'
+import ProposalSessionsSection from './ProposalSessionsSection'
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+
+type ProposalDetailsSheetProps = {
+  isOpen?: boolean
+  setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>
+  proposal: Proposal | null
+  learnRequestId: string
+  learnRequestStatus: LearnRequestStatus
+}
+
+const ProposalDetailsSheet: React.FC<ProposalDetailsSheetProps> = ({
+  isOpen,
+  setIsOpen,
+  proposal,
+}) => {
+  if (!proposal) return null
+  const { tutor } = proposal
+  const initials =
+    `${tutor.firstname?.charAt(0) ?? ''}${tutor.lastname?.charAt(0) ?? ''}`.toUpperCase()
+  const fullName = `${tutor.firstname} ${tutor.lastname.charAt(0)} .`
+  const submittedOn = new Date(proposal.createdAt).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  })
+
+  return (
+    <>
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <SheetContent
+          showCloseButton={false}
+          side={'right'}
+          className="w-full min-w-[1020px] !border-0"
+        >
+          <SheetHeader className="border-b-[0.5px] border-b-[#E0E2E6] p-5">
+            <SheetTitle>
+              <button type="button" onClick={() => setIsOpen?.(false)} aria-label="Close">
+                <ArrowLeft />
+              </button>
+            </SheetTitle>
+          </SheetHeader>
+          <div className="no-scrollbar flex flex-col divide-y divide-[#E0E2E6] overflow-y-auto">
+            <div className="flex items-center justify-between p-5">
+              <div className="flex items-center gap-3">
+                <Avatar className="h-20 w-20 cursor-pointer after:border-none">
+                  <AvatarImage src={getAssetUrl(tutor.avatar)} alt={fullName} />
+                  <AvatarFallback className="bg-[#2563EB] text-sm font-semibold text-white">
+                    {initials}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <p className="text-2xl font-bold text-[#1E293B]">{fullName}</p>
+                    <VerifiedBadge status={tutor.tutorProfile?.verificationStatus} />
+                  </div>
+                  <div className="flex flex-wrap items-center gap-1 text-base text-[#565a60]">
+                    {tutor.country && (
+                      <span className="flex items-center gap-1">
+                        <MapPin className="h-4 w-4" aria-hidden="true" />
+                        {tutor.country}
+                      </span>
+                    )}
+                    <span>Submitted {submittedOn}</span>
+                  </div>
+                  <Link to={'/'} className="text-sm font-semibold text-[#143681] underline">
+                    View profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr]">
+              <aside className="flex flex-col gap-6 border-b border-[#E0E2E6] p-5 lg:border-b-0 lg:border-r">
+                {proposal.message && (
+                  <div>
+                    <p className="text-xl font-semibold">Cover letter</p>
+                    <RichTextContent html={proposal.message} />
+                  </div>
+                )}
+                {proposal.tutor.tutorProfile?.videoIntroUrl && (
+                  <div className="space-y-4">
+                    <p className="text-xl font-semibold">Meet {proposal.tutor.firstname}</p>
+                    <div className="relative aspect-video overflow-hidden rounded-md">
+                      <ReactPlayer
+                        url={proposal.tutor.tutorProfile.videoIntroUrl}
+                        controls={true}
+                        height="100%"
+                        width="100%"
+                      />
+                    </div>
+                  </div>
+                )}
+                {proposal.tutor.languages && (
+                  <div>
+                    <p className="text-xl font-semibold">Languages</p>
+                    <ul className="mt-2 space-y-0.5">
+                      {proposal.tutor.languages.map((lang: Language) => (
+                        <li key={lang.language} className="text-sm font-normal text-[#143681]">
+                          <span className="font-semibold">{lang.language}</span>:{' '}
+                          {languageLevelLabels[lang.level] ?? lang.level}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </aside>
+              <div className="divide-y divide-[#E0E2E6]">
+                <div>
+                  <div className="flex w-full flex-wrap items-center justify-between gap-3 p-6">
+                    <h1 className="text-xl font-bold">Proposal Details</h1>
+                    <div className="flex items-center gap-6">
+                      <p className="text-base font-bold">{formatBudget(proposal.totalPrice)} TND</p>
+                      <div className="flex items-center gap-2 font-bold">
+                        <Wallet className="size-4 text-[#143681]" />
+                        <p className="text-base">{PAYOUT_METHOD_LABELS[proposal.payoutMethod]}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <section id="proposal-sessions" className="p-6">
+                    <ProposalSessionsSection
+                      sessions={proposal.sessionPlans}
+                      sessionDurationMinutes={proposal.sessionDurationMinutes}
+                    />
+                  </section>
+                </div>
+                <div className="w-full space-y-5 p-6">
+                  <p className="text-2xl font-bold text-[#1E293B]">{proposal.tutor.headline}</p>
+                  <ProposalSessionObjective
+                    className="text-base font-medium text-[#1E293B]"
+                    objective={proposal.tutor.bio}
+                  />
+                </div>
+                {proposal.tutor.tutorProfile?.skills && (
+                  <div className="p-6">
+                    <p className="text-2xl font-bold text-[#1E293B]">Skills</p>
+                    <div className="flex flex-wrap gap-2 p-3">
+                      {proposal.tutor.tutorProfile.skills.map(({ skill }) => (
+                        <SkillChip key={skill.id} name={skill.name} id={skill.id} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
+    </>
+  )
+}
+
+export default ProposalDetailsSheet
