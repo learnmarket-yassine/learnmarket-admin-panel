@@ -10,6 +10,8 @@ import LearnRequestsPage from './pages/LearnRequestsPage'
 import LearnRequestDetailsPage from './pages/LearnRequestDetailsPage'
 import SessionDetailPage from './pages/SessionDetailsPage'
 import DisputedSessionsPage from './pages/DisputedSessionsPage'
+import TaxonomyPage from './pages/TaxonomyPage'
+import SkillsPage from './pages/SkillsPage'
 const AppRoutes = () => {
   return (
     <Routes>
@@ -30,6 +32,8 @@ const AppRoutes = () => {
               element={<SessionDetailPage />}
             />
             <Route path="/sessions" element={<DisputedSessionsPage />} />
+            <Route path="/taxonomy" element={<TaxonomyPage />} />
+            <Route path="/skills" element={<SkillsPage />} />
           </Route>
         </Route>
       </Route>

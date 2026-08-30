@@ -7,12 +7,13 @@ type MySessionsLayoutProps = {
 const DisputedSessionsLayout = ({ children }: MySessionsLayoutProps) => {
   return (
     <div className="relative h-full w-full space-y-8 bg-white p-2">
-      <div className="flex items-center justify-between">
+      <div className="space-y-3">
         <BackButton text={'Back'} className="text-xl text-primary" route={`/learn-requests`} />
-      </div>
-      <div className="w-full space-y-3">
-        <h2 className="text-2xl font-semibold text-blue-600">Sessions</h2>
-        <p className="text-text text-justify">Here you can manage the disputed sessions.</p>
+        <p className="text-text text-justify">
+          Here you can manage disputed sessions between tutors and learners by reviewing the session
+          details and the reported issues. You can assess each dispute and decide whether to refund
+          the learner or release the payout to the tutor.
+        </p>
       </div>
       <div className="min-w-0">{children}</div>
     </div>

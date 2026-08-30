@@ -5,6 +5,7 @@ import LogoutIcon from '@/assets/LogoutIcon'
 import { useStore } from '@/store/store'
 import LearnRequestsIcon from '@/assets/LearnRequestsIcon'
 import VideoIcon from '@/assets/VideoIcon'
+import { Tags, Sparkles } from 'lucide-react'
 
 const NavLinks = () => {
   const clickedLearnRequestName = useStore((state) => state.learnRequest.clickedLearnRequestName)
@@ -24,6 +25,20 @@ const NavLinks = () => {
       label: 'Disputed Sessions',
       disabled: false,
       isActive: location.pathname.includes('/sessions'),
+    },
+    {
+      to: '/taxonomy',
+      icon: <Tags className="size-5" />,
+      label: 'Taxonomy',
+      disabled: false,
+      isActive: location.pathname.includes('/taxonomy'),
+    },
+    {
+      to: '/skills',
+      icon: <Sparkles className="size-5" />,
+      label: 'Skills',
+      disabled: false,
+      isActive: location.pathname.includes('/skills'),
     },
   ]
 

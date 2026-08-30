@@ -1,0 +1,24 @@
+import EditIcon from '@/assets/EditIcon'
+import { Button } from '@/components/ui/button'
+
+interface EditButtonProps {
+  label: string
+  onClick?: () => void
+  className?: string
+}
+
+function EditButton({ label, onClick, className }: EditButtonProps) {
+  return (
+    <Button
+      type="button"
+      variant="ghost"
+      size="icon"
+      aria-label={label}
+      onClick={onClick}
+      className={`h-10 w-10 rounded-full border border-[#2563EB] text-[#2563EB] ${className ?? ''}`}
+    >
+      <EditIcon className="size-5" />
+    </Button>
+  )
+}
+export default EditButton
