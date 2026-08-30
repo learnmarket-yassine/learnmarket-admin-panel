@@ -5,7 +5,7 @@ import LogoutIcon from '@/assets/LogoutIcon'
 import { useStore } from '@/store/store'
 import LearnRequestsIcon from '@/assets/LearnRequestsIcon'
 import VideoIcon from '@/assets/VideoIcon'
-import { Tags, Sparkles } from 'lucide-react'
+import { Tags, Sparkles, Users, BadgeCheck, Coins } from 'lucide-react'
 
 const NavLinks = () => {
   const clickedLearnRequestName = useStore((state) => state.learnRequest.clickedLearnRequestName)
@@ -40,11 +40,32 @@ const NavLinks = () => {
       disabled: false,
       isActive: location.pathname.includes('/skills'),
     },
+    {
+      to: '/users',
+      icon: <Users className="size-5" />,
+      label: 'Users',
+      disabled: false,
+      isActive: location.pathname.includes('/users'),
+    },
+    {
+      to: '/tutor-verifications',
+      icon: <BadgeCheck className="size-5" />,
+      label: 'Tutor Verifications',
+      disabled: false,
+      isActive: location.pathname.includes('/tutor-verifications'),
+    },
+    {
+      to: '/sparks',
+      icon: <Coins className="size-5" />,
+      label: 'Sparks',
+      disabled: false,
+      isActive: location.pathname.includes('/sparks'),
+    },
   ]
 
   return (
-    <nav className="w-full space-y-20">
-      <ul className="flex w-full flex-col items-center gap-6">
+    <nav className="w-full space-y-8">
+      <ul className="flex w-full flex-col items-center gap-2">
         {navData.map((nav) => {
           return (
             <SideBarLink

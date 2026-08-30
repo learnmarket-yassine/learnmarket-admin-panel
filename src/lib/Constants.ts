@@ -1,3 +1,4 @@
+import { OptionConfig } from '@/components/ui/ColumnFilter/ColumnOptions/types'
 import { SessionStatus } from '@/features/learn-request/components/ui/SessionBoardRow'
 import {
   LanguageLevel,
@@ -8,6 +9,7 @@ import {
   ProposalStatus,
 } from '@/features/learn-request/store/types'
 import { SessionStatusConfig } from '@/features/session/components/ui/MeetingCard'
+import { countries } from 'country-data-list'
 
 export const PASSWORD_RULES = [
   {
@@ -99,4 +101,20 @@ export const languageLevelLabels: Record<LanguageLevel, string> = {
   CONVERSATIONAL: 'conversational',
   FLUENT: 'fluent',
   NATIVE_OR_BILINGUAL: 'native',
+}
+
+export const FILTER_OPTIONS: OptionConfig = {
+  user: {
+    role: [
+      { id: 0, name: 'Learner', value: 'LEARNER' },
+      { id: 1, name: 'Tutor', value: 'TUTOR' },
+    ],
+    country: countries.all
+      .filter((country) => country.emoji && country.status !== 'deleted' && country.ioc !== 'PRK')
+      .map((country, index) => ({
+        id: index,
+        name: country.name,
+        value: country.name,
+      })),
+  },
 }
