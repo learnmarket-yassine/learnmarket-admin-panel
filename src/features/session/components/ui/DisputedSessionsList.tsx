@@ -31,21 +31,7 @@ const DisputedSessionsList = () => {
   }
 
   if (sessions.length === 0) {
-    return (
-      <EmptyPage
-        description={''}
-        actionButton={
-          <Button
-            type="button"
-            onClick={() => navigate('/accueil')}
-            aria-label="Create Announcement"
-            className={`h-full border border-[#2563EB] bg-[#2563EB] p-3 text-white hover:bg-[#2563EB]`}
-          >
-            <span>Go to Accueil</span>
-          </Button>
-        }
-      />
-    )
+    return <EmptyPage description={'Currently, there are no disputed sessions available.'} />
   }
 
   return (

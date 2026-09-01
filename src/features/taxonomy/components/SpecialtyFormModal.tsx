@@ -100,6 +100,8 @@ const SpecialtyFormModal = ({
       } else {
         await createSpecialty.mutateAsync({ categoryId, name, slug })
         ToastMessage({ type: 'success', message: 'Specialty created' })
+        setValue('name', '')
+        setValue('slug', '')
       }
       onOpenChange(false)
     } catch (error) {

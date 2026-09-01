@@ -1,4 +1,4 @@
-export type FilterType = 'user' | 'tutorVerifications'
+export type FilterType = 'user' | 'tutorVerifications' | 'sparksOffers'
 
 type Condition = {
   [key: string]: string
@@ -33,6 +33,7 @@ export type TableFilter = {
 export type TableFilters = {
   user: TableFilter[]
   tutorVerifications: TableFilter[]
+  sparksOffers: TableFilter[]
 }
 
 export interface TutorFeedbackEntry {

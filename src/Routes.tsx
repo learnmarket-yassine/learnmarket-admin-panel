@@ -15,6 +15,7 @@ import SkillsPage from './pages/SkillsPage'
 import UsersPage from './pages/UsersPage'
 import TutorVerificationsPage from './pages/TutorVerificationPage'
 import UserProfilePage from './pages/UserProfilePage'
+import SparksOffersPage from './pages/SparksOffersPage'
 const AppRoutes = () => {
   return (
     <Routes>
@@ -40,6 +41,7 @@ const AppRoutes = () => {
             <Route path="/users" element={<UsersPage />} />
             <Route path="/users/:id" element={<UserProfilePage />} />
             <Route path="/tutor-verifications" element={<TutorVerificationsPage />} />
+            <Route path="/sparks" element={<SparksOffersPage />} />
           </Route>
         </Route>
       </Route>

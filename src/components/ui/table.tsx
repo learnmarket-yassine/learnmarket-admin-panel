@@ -127,7 +127,7 @@ const TableHead = React.forwardRef<
     return (
       <th
         ref={ref}
-        className={`relative ${headerHeight ? headerHeight : 'h-20 lg:h-28'} cursor-pointer whitespace-nowrap px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0`}
+        className={`relative ${headerHeight ? headerHeight : 'h-20 lg:h-20'} cursor-pointer whitespace-nowrap px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0`}
         {...props}
       >
         <div className={cn('flex items-center gap-3', className)}>

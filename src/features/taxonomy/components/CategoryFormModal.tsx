@@ -86,6 +86,8 @@ const CategoryFormModal = ({
       } else {
         await createCategory.mutateAsync({ name, slug })
         ToastMessage({ type: 'success', message: 'Category created' })
+        setValue('name', '')
+        setValue('slug', '')
       }
       onOpenChange(false)
     } catch (error) {

@@ -12,6 +12,7 @@ const initialState = {
   tableFilters: {
     user: [],
     tutorVerifications: [],
+    sparksOffers: [],
   },
 }
 export const usersSlice: StateCreator<UsersSlice> = (set) => ({
