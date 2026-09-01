@@ -116,14 +116,16 @@ const SkillsPage = () => {
             </ul>
           )}
 
-          <div className="mt-2 flex items-center justify-center">
-            <LearnRequestPagination
-              currentPage={page}
-              totalCount={total}
-              take={SKILLS_PAGE_SIZE}
-              onPageChange={setPage}
-            />
-          </div>
+          {skills.length > 0 && (
+            <div className="mt-2 flex items-center justify-center">
+              <LearnRequestPagination
+                currentPage={page}
+                totalCount={total}
+                take={SKILLS_PAGE_SIZE}
+                onPageChange={setPage}
+              />
+            </div>
+          )}
 
           <SkillFormModal
             open={isFormOpen}

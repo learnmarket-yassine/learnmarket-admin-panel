@@ -113,14 +113,16 @@ const SpecialtiesCard = ({ categoryId }: SpecialtiesCardProps) => {
           )}
         </ul>
       )}
-      <div className="mt-2 flex items-center justify-center">
-        <LearnRequestPagination
-          currentPage={page}
-          totalCount={total}
-          take={SPECIALTIES_PAGE_SIZE}
-          onPageChange={setPage}
-        />
-      </div>
+      {specialties.length > 0 && (
+        <div className="mt-2 flex items-center justify-center">
+          <LearnRequestPagination
+            currentPage={page}
+            totalCount={total}
+            take={SPECIALTIES_PAGE_SIZE}
+            onPageChange={setPage}
+          />
+        </div>
+      )}
       <SpecialtyFormModal
         open={isFormOpen}
         onOpenChange={setIsFormOpen}

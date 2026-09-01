@@ -32,7 +32,7 @@ const useGetTutorVerifications = (take = VERIFICATIONS_PAGE_SIZE) => {
   const setTutorVerifications = useStore((state) => state.tutorVerifications.setTutorVerifications)
 
   const sortDir = filters.find(
-    (filter) => filter.optionName === 'date' && filter.filterKey === 'order'
+    (filter) => filter.optionName === 'submittedAt' && filter.filterKey === 'order'
   )?.filterValue as 'asc' | 'desc' | undefined
   const username = filters.find((filter) => filter.optionName === 'username')?.filterValue
 

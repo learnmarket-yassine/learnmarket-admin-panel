@@ -1,9 +1,7 @@
 import { useMemo, useState } from 'react'
-import { Button } from '@/components/ui/button'
 import EmptyState from '@/components/ui/EmptyState'
 import Loader from '@/components/ui/Loader/Loader'
 import { EmptyPage } from '@/features/learn-request/components/ui/EmptyPage'
-import { useNavigate } from 'react-router-dom'
 import useGetSessionsDisputed, {
   DISPUTED_SESSIONS_PAGE_SIZE,
 } from '../../hooks/useGetDisputedSessions'
@@ -11,7 +9,6 @@ import DisputedSessionCard from './DisputedSessionCard'
 import LearnRequestPagination from '@/features/learn-request/components/ui/LearnRequestPagination'
 
 const DisputedSessionsList = () => {
-  const navigate = useNavigate()
   const [page, setPage] = useState(0)
 
   const { data, isLoading, isError } = useGetSessionsDisputed({
@@ -31,21 +28,7 @@ const DisputedSessionsList = () => {
   }
 
   if (sessions.length === 0) {
-    return (
-      <EmptyPage
-        description={''}
-        actionButton={
-          <Button
-            type="button"
-            onClick={() => navigate('/accueil')}
-            aria-label="Create Announcement"
-            className={`h-full border border-[#2563EB] bg-[#2563EB] p-3 text-white hover:bg-[#2563EB]`}
-          >
-            <span>Go to Accueil</span>
-          </Button>
-        }
-      />
-    )
+    return <EmptyPage description={'Currently, there are no disputed sessions available.'} />
   }
 
   return (

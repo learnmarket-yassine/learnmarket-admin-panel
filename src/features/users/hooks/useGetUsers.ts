@@ -36,7 +36,7 @@ const useGetUsers = (take = USERS_PAGE_SIZE) => {
   const setUsers = useStore((state) => state.users.setUsers)
 
   const sortDir = filters.find(
-    (filter) => filter.optionName === 'date' && filter.filterKey === 'order'
+    (filter) => filter.optionName === 'createdAt' && filter.filterKey === 'order'
   )?.filterValue as 'asc' | 'desc' | undefined
   const status = filters.find(
     (filter) => filter.optionName === 'role' && filter.filterKey === 'radio'

@@ -27,7 +27,10 @@ type Props = {
 const CustomTable = (props: Props) => {
   const filters = useStore((state) => state.users.tableFilters).user
   const tutorVerificationsFilters = useStore((state) => state.users.tableFilters).tutorVerifications
-  const hasFiltersApplied = filters.length > 0 || tutorVerificationsFilters.length > 0
+  const sparksOffersFilters = useStore((state) => state.users.tableFilters).sparksOffers
+
+  const hasFiltersApplied =
+    filters.length > 0 || tutorVerificationsFilters.length > 0 || sparksOffersFilters.length > 0
 
   return (
     <Table>

@@ -45,6 +45,7 @@ const ColumnOptions = memo((props: ColumnOptionsProps) => {
     () =>
       (filterType === 'user' && optionName === 'username') ||
       (filterType === 'tutorVerifications' && optionName === 'username') ||
+      (filterType === 'sparksOffers' && optionName === 'name') ||
       initialOptions.length > 0,
     [filterType, optionName, initialOptions.length]
   )
