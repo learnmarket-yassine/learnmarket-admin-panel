@@ -12,6 +12,9 @@ import SessionDetailPage from './pages/SessionDetailsPage'
 import DisputedSessionsPage from './pages/DisputedSessionsPage'
 import TaxonomyPage from './pages/TaxonomyPage'
 import SkillsPage from './pages/SkillsPage'
+import UsersPage from './pages/UsersPage'
+import TutorVerificationsPage from './pages/TutorVerificationPage'
+import UserProfilePage from './pages/UserProfilePage'
 const AppRoutes = () => {
   return (
     <Routes>
@@ -34,6 +37,9 @@ const AppRoutes = () => {
             <Route path="/sessions" element={<DisputedSessionsPage />} />
             <Route path="/taxonomy" element={<TaxonomyPage />} />
             <Route path="/skills" element={<SkillsPage />} />
+            <Route path="/users" element={<UsersPage />} />
+            <Route path="/users/:id" element={<UserProfilePage />} />
+            <Route path="/tutor-verifications" element={<TutorVerificationsPage />} />
           </Route>
         </Route>
       </Route>

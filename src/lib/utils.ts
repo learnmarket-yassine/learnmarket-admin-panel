@@ -24,3 +24,11 @@ export function formatFileSize(bytes: number | null): string {
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
 }
+
+export function getYoutubeThumbnailUrl(url: string): string | undefined {
+  const match = url.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([a-zA-Z0-9_-]{11})/
+  )
+  const videoId = match?.[1]
+  return videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : undefined
+}

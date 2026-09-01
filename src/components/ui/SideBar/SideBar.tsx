@@ -9,7 +9,7 @@ const SideBar = () => {
     <aside className="flex h-full w-64 flex-col bg-[#F2F2F2]">
       <div className="flex-grow overflow-y-auto">
         <div className="flex flex-col items-center gap-8 p-4">
-          <Link to="/" className="py-6">
+          <Link to="/" className="py-3">
             <OthentisLogo />
           </Link>
           <>
