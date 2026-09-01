@@ -3,7 +3,6 @@ import { fr } from 'date-fns/locale'
 import { FileText } from 'lucide-react'
 import { Certification } from '@/features/tutorVerifications/hooks/useGetUserProfile'
 import useDownloadAttachment from '@/features/tutorVerifications/hooks/useDownloadAttachment'
-import { useParams } from 'react-router-dom'
 
 type CertificationItemProps = Certification & { tutorId: string }
 
@@ -18,7 +17,6 @@ function CertificationItem({
   tutorId,
 }: CertificationItemProps) {
   const { handleDownload } = useDownloadAttachment()
-  const params = useParams()
 
   return (
     <div className="space-y-4 py-8">

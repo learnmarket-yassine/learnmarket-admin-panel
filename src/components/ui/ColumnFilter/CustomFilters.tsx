@@ -9,6 +9,7 @@ export const customFilters: Record<
   }
 > = {
   user: { filters: {} },
+  tutorVerifications: { filters: {} },
 }
 
 export const customOrders: Record<
@@ -20,4 +21,5 @@ export const customOrders: Record<
   }
 > = {
   user: { filters: {} },
+  tutorVerifications: { filters: {} },
 }
