@@ -1,4 +1,4 @@
-export type FilterType = 'user'
+export type FilterType = 'user' | 'tutorVerifications'
 
 type Condition = {
   [key: string]: string
@@ -32,6 +32,24 @@ export type TableFilter = {
 }
 export type TableFilters = {
   user: TableFilter[]
+  tutorVerifications: TableFilter[]
+}
+
+export interface TutorFeedbackEntry {
+  id: string
+  rating: number
+  comment: string | null
+  createdAt: string
+  author: {
+    id: string
+    firstname: string
+    lastname: string
+    avatar: string | null
+  }
+  learnRequestTitle: string
+  engagementStart: string
+  engagementEnd: string | null
+  billedAmount: number | string
 }
 
 type Role = 'TUTOR' | 'LEARNER'

@@ -43,7 +43,7 @@ const ConfirmModal = (props: Props) => {
   return (
     <div>
       <Dialog open={props?.isOpen} onOpenChange={props.setIsOpen} key={props.description}>
-        {props.name !== 'Event Exception Modal' && (
+        {props.name !== 'Event Exception Modal' && props.name !== 'Tutor Verification' && (
           <DialogTrigger asChild type="button">
             <button
               type="button"

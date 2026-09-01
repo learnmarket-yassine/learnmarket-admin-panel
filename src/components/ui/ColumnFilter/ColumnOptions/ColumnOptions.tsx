@@ -42,7 +42,10 @@ const ColumnOptions = memo((props: ColumnOptionsProps) => {
   }, [clearSearch, setKeyword])
 
   const showSearchBar = useMemo(
-    () => (filterType === 'user' && optionName === 'username') || initialOptions.length > 0,
+    () =>
+      (filterType === 'user' && optionName === 'username') ||
+      (filterType === 'tutorVerifications' && optionName === 'username') ||
+      initialOptions.length > 0,
     [filterType, optionName, initialOptions.length]
   )
 

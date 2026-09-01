@@ -10,6 +10,8 @@ import ViewIcon from '@/assets/ViewIcon'
 import ConfirmModal from '@/components/layout/ConfirmModal'
 import useBlockUser from '../../hooks/useBlockUser'
 import useUnblockUser from '../../hooks/useUnblockUser'
+import { Button } from '@/components/ui/button'
+import { useNavigate } from 'react-router-dom'
 
 const headers = [
   {
@@ -61,6 +63,7 @@ const headers = [
 
 const UsersTable = () => {
   const getUsersQuery = useGetUsers()
+  const navigate = useNavigate()
   const { mutateAsync: blockUserMutate, isPending: blockUserPending } = useBlockUser()
   const { mutateAsync: unblockUserMutate, isPending: unblockUserPending } = useUnblockUser()
   const users = useStore((state) => state.users.users)
@@ -76,7 +79,13 @@ const UsersTable = () => {
   const usersRows = users?.map((user) => (
     <TableRow key={user?.id}>
       <TableCell className="flex items-center justify-center font-medium">
-        <ViewIcon />
+        <Button
+          onClick={() => {
+            navigate(`/users/${user.id}`)
+          }}
+        >
+          <ViewIcon />
+        </Button>
       </TableCell>
       <TableCell className="text-center font-medium">
         {user?.firstname + ' ' + user?.lastname}

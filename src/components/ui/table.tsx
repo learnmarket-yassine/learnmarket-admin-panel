@@ -94,7 +94,7 @@ const TableHead = React.forwardRef<
     },
     ref
   ) => {
-    const filters = useStore((state) => state.users.tableFilters).user
+    const filters = useStore((state) => state.users.tableFilters)[filterType] || []
     const setFilters = useStore((state) => state.users.setTableFilters)
 
     const formatDate = (dateString: string) => {

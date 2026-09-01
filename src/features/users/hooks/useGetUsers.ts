@@ -6,7 +6,6 @@ import { User } from '../store/types'
 import { useEffect } from 'react'
 
 export const USERS_PAGE_SIZE = 5
-export const USERS_FILTER_TYPE = 'payments'
 
 export interface GetUsersResponse {
   paginatedResult: User[]

@@ -11,6 +11,7 @@ const initialState = {
   userFilters: [],
   tableFilters: {
     user: [],
+    tutorVerifications: [],
   },
 }
 export const usersSlice: StateCreator<UsersSlice> = (set) => ({
