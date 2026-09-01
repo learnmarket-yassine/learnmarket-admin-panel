@@ -1,6 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
-import { useStore } from '@/store/store'
 import { AxiosInstance } from 'axios'
 import useAxiosPrivate from '@/hooks/useAxiosPrivate'
 
@@ -26,7 +25,6 @@ const editSparksOffer = async (
 
 const useEditSparksOffer = () => {
   const queryClient = useQueryClient()
-  const setSparksOffers = useStore((state) => state.sparksOffers.setSparksOffers)
   const [modalState, setModalState] = useState<{
     isOpen: boolean
     type: 'success' | 'error'
