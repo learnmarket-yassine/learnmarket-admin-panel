@@ -16,14 +16,19 @@ import UsersPage from './pages/UsersPage'
 import TutorVerificationsPage from './pages/TutorVerificationPage'
 import UserProfilePage from './pages/UserProfilePage'
 import SparksOffersPage from './pages/SparksOffersPage'
+import RequireGuest from './RequireGuest'
+import SettingsPage from './pages/SettingsPage'
+import AccountSettingsPage from './pages/AccountSettingsPage'
 const AppRoutes = () => {
   return (
     <Routes>
       <Route element={<PersistLogin />}>
-        <Route path="login" element={<LoginPage />} />
-        <Route path="forgot-password" element={<ForgotPasswordPage />} />
-        <Route path="verif-code" element={<VerifCodePage />} />
-        <Route path="reset-password" element={<ResetPasswordPage />} />
+        <Route element={<RequireGuest />}>
+          <Route path="login" element={<LoginPage />} />
+          <Route path="forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="verif-code" element={<VerifCodePage />} />
+          <Route path="reset-password" element={<ResetPasswordPage />} />
+        </Route>
       </Route>
       <Route element={<PersistLogin />}>
         <Route path="/" element={<Layout />}>
@@ -42,6 +47,8 @@ const AppRoutes = () => {
             <Route path="/users/:id" element={<UserProfilePage />} />
             <Route path="/tutor-verifications" element={<TutorVerificationsPage />} />
             <Route path="/sparks" element={<SparksOffersPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/account" element={<AccountSettingsPage />} />
           </Route>
         </Route>
       </Route>
