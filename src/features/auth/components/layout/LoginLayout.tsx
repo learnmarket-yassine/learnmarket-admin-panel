@@ -1,7 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import LogoHeader from './LogoHeader'
-import { useStore } from '@/store/store'
-import Loader from '@/components/ui/Loader/Loader'
 import LoginRightBlock from './LoginRightBlock'
 
 type Props = {
