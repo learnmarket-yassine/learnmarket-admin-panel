@@ -8,6 +8,7 @@ export type AuthUser = {
   firstname: string
   lastname: string
   avatar: string | null
+  country?: string
   phone?: string
   phoneCountryCode?: string
   dateOfBirth?: string

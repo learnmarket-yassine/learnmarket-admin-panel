@@ -53,22 +53,27 @@ function CommandDialog({
 
 function CommandInput({
   className,
+  showSearchIcon = true,
   ...props
-}: React.ComponentProps<typeof CommandPrimitive.Input>) {
+}: React.ComponentProps<typeof CommandPrimitive.Input> & {
+  showSearchIcon?: boolean
+}) {
   return (
     <div data-slot="command-input-wrapper" className="p-1 pb-0">
       <InputGroup className="h-8! rounded-lg! shadow-none! *:data-[slot=input-group-addon]:pl-2! border-input/30 bg-input/30">
+        {showSearchIcon && (
+          <InputGroupAddon>
+            <SearchIcon className="size-4 shrink-0 opacity-50" />
+          </InputGroupAddon>
+        )}
         <CommandPrimitive.Input
           data-slot="command-input"
           className={cn(
-            'outline-hidden w-full text-sm disabled:cursor-not-allowed disabled:opacity-50',
+            'w-full border-0 bg-transparent text-sm outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50',
             className
           )}
           {...props}
         />
-        <InputGroupAddon>
-          <SearchIcon className="size-4 shrink-0 opacity-50" />
-        </InputGroupAddon>
       </InputGroup>
     </div>
   )

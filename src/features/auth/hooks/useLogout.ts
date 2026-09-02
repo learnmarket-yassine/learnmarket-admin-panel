@@ -28,7 +28,7 @@ const useLogout = () => {
       setAuthenticationResult(null)
       queryClient.clear()
       ToastMessage({ type: 'success', message: 'You have been logged out.' })
-      navigate('/')
+      navigate('/login')
     },
     onError: () => {
       ToastMessage({ type: 'error', message: 'Failed to log you out. Please try again.' })

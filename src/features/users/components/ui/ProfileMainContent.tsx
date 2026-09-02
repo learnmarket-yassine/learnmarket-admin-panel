@@ -29,22 +29,24 @@ function ProfileMainContent({ profile }: ProfileMainContentProps) {
       {profile.role === 'TUTOR' && <TutorFeedbackSection tutorId={profile.id} />}
 
       {/* Interests */}
-      <div className="space-y-5 p-8">
-        <div className="flex items-center justify-between">
-          <h3 className="text-2xl font-semibold text-[#143681]">Interests</h3>
+      {profile.role === 'LEARNER' && (
+        <div className="space-y-5 p-8">
+          <div className="flex items-center justify-between">
+            <h3 className="text-2xl font-semibold text-[#143681]">Interests</h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {profile.learnerProfile?.interests.map((interest) => (
+              <Badge
+                key={interest.id}
+                variant="secondary"
+                className="h-9 rounded-lg border-none bg-[#F5F6F7] px-4 py-2 text-sm text-[#102A63]"
+              >
+                {interest.specialty.name}
+              </Badge>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-wrap gap-2">
-          {profile.learnerProfile?.interests.map((interest) => (
-            <Badge
-              key={interest.id}
-              variant="secondary"
-              className="h-9 rounded-lg border-none bg-[#F5F6F7] px-4 py-2 text-sm text-[#102A63]"
-            >
-              {interest.specialty.name}
-            </Badge>
-          ))}
-        </div>
-      </div>
+      )}
       {/* Specialties */}
       {(profile.tutorProfile?.specialties ?? []).length > 0 && (
         <div className="space-y-5 p-8">

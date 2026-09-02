@@ -1,7 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import LogoHeader from './LogoHeader'
-import { useStore } from '@/store/store'
-import Loader from '@/components/ui/Loader/Loader'
 import LoginRightBlock from './LoginRightBlock'
 
 type Props = {
@@ -11,12 +9,8 @@ type Props = {
 const LoginLayout = (props: Props) => {
   const location = useLocation()
   const navigate = useNavigate()
-  const auth = useStore((state) => state.auth.authenticationResult)
-  const user = useStore((state) => state.auth.user)
 
-  return auth && !user ? (
-    <Loader className="flex h-full w-full items-center justify-center" />
-  ) : (
+  return (
     <div className="flex w-full flex-row">
       <div className="flex w-full flex-col bg-white lg:relative lg:basis-7/12">
         <div className="absolute left-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center p-5 sm:w-1/2 lg:w-full xl:w-auto">

@@ -19,7 +19,7 @@ const SideBar = () => {
       </div>
 
       <div className="bg-[#2563EB] p-4 text-white">
-        <Link to="/my-profile" className="flex items-center space-x-3">
+        <Link to="/account" className="flex items-center space-x-3">
           <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white font-semibold text-[#2563EB]">
             {user?.firstname?.[0]}
             {user?.lastname?.[0]}
