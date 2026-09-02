@@ -69,7 +69,7 @@ const SkillFormModal = ({ open, onOpenChange, skill, existingSkills }: SkillForm
       if (isEditing) {
         await updateSkill.mutateAsync({
           id: skill.id,
-          payload: { name, isActive: values.isActive },
+          payload: { name },
         })
         ToastMessage({ type: 'success', message: 'Skill updated' })
       } else {
