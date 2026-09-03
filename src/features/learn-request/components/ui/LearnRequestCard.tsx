@@ -6,6 +6,7 @@ import { LearnRequest } from '../../store/types'
 import { formatLabel, LEVEL_LABELS, TYPE_LABELS } from '@/lib/Constants'
 import { BookOpen, CalendarClock } from 'lucide-react'
 import RichTextContent from '@/components/ui/rich-text-content'
+import { formatDistanceToNow } from 'date-fns'
 
 export type LearnRequestPreview = Partial<LearnRequest>
 
@@ -39,6 +40,7 @@ const LearnRequestCard: React.FC<LearnRequestPreview> = ({
   title,
   budgetMax,
   budgetMin,
+  createdAt,
   description,
   requestedFrequency,
   skills,
@@ -70,7 +72,9 @@ const LearnRequestCard: React.FC<LearnRequestPreview> = ({
       className="group cursor-pointer rounded-2xl border border-gray-200 bg-white p-4 transition-all duration-300 hover:border-[#143681] hover:shadow-lg"
     >
       <div className="space-y-2">
-        <p className="px-2 text-sm text-[#6B7280]">posted 1 hour ago</p>
+        <p className="px-2 text-sm text-[#6B7280]">
+          posted {formatDistanceToNow(new Date(createdAt ?? ''), { addSuffix: true })}
+        </p>
         <div className="flex items-center justify-between">
           {type && TypeIcon && (
             <span
