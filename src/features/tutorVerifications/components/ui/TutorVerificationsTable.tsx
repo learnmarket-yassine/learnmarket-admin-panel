@@ -17,6 +17,7 @@ import ViewTutorVerificationInfo from './ViewTutorVerificationInfo'
 import { SquareArrowOutUpRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import TutorVerificationDisapproveModal from './TutorVerificationDisapproveModal'
+import { useNavigate } from 'react-router-dom'
 
 export type VerificationAction = 'approve' | 'disapprove'
 
@@ -72,7 +73,7 @@ const TutorVerificationsTable = () => {
   const [openDisapproveModal, setOpenDisapproveModal] = useState<ModalState>({ isOpen: false })
   const getTutorVerificationsQuery = useGetTutorVerifications()
   const tutorVerifications = useStore((state) => state.tutorVerifications.tutorVerifications)
-
+  const navigate = useNavigate()
   const { ref, inView } = useInView()
 
   const { mutateAsync: approveTutorVerification, isPending: isApprovalPending } =
@@ -169,7 +170,7 @@ const TutorVerificationsTable = () => {
             </Button>
           </div>
         ))}
-        <Button onClick={() => {}}>
+        <Button onClick={() => navigate(`/users/${verification.user.id}`)}>
           <SquareArrowOutUpRight />
         </Button>
       </TableCell>
